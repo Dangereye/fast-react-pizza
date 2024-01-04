@@ -104,7 +104,7 @@ export async function action({ request }) {
   const errors = {};
   if (!isValidPhone(order.phone))
     errors.phone =
-      'Please provide a correct phone number. We might ned it to contact you.';
+      'Please provide a correct phone number. We might need it to contact you.';
 
   if (Object.keys(errors).length > 0) return errors;
 
