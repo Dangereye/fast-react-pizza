@@ -1,6 +1,9 @@
 // React
 import { useState } from 'react';
 
+// React Redux
+import { useSelector } from 'react-redux';
+
 // React router
 import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
 
@@ -41,6 +44,7 @@ const fakeCart = [
 ];
 
 function CreateOrder() {
+  const username = useSelector((state) => state.user.username);
   const navigation = useNavigation();
   const isSubmitting = navigation.state === 'submitting';
   const formErrors = useActionData();
@@ -56,7 +60,13 @@ function CreateOrder() {
       <Form method='POST'>
         <div className='flex flex-col gap-2 mb-5 sm:items-center sm:flex-row'>
           <label className='sm:basis-40'>First Name</label>
-          <input className='input grow' type='text' name='customer' required />
+          <input
+            className='input grow'
+            type='text'
+            name='customer'
+            defaultValue={username}
+            required
+          />
         </div>
 
         <div className='flex flex-col gap-2 mb-5 sm:items-center sm:flex-row'>

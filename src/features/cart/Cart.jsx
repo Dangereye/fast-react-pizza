@@ -1,5 +1,5 @@
-// React router
-import { Link } from 'react-router-dom';
+// React Redux
+import { useSelector } from 'react-redux';
 
 // Components
 import LinkButton from '../../ui/LinkButton';
@@ -31,13 +31,14 @@ const fakeCart = [
 ];
 
 function Cart() {
+  const username = useSelector((state) => state.user.username);
   const cart = fakeCart;
 
   return (
     <div className='px-4 py-3'>
       <LinkButton to='/menu'>&larr; Back to menu</LinkButton>
 
-      <h2 className='text-xl font-semibold mt-7'>Your cart, %NAME%</h2>
+      <h2 className='text-xl font-semibold mt-7'>Your cart, {username}</h2>
 
       <ul className='mt-3 border-b divide-y divide-stone-200'>
         {cart.map((item) => (
