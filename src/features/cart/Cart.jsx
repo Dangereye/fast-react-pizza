@@ -8,7 +8,8 @@ import CartItem from './CartItem';
 import EmptyCart from './EmptyCart';
 
 // Actions & Selectors
-import { clearCart, getCart, getUsername } from './cartSlice';
+import { clearCart, getCart } from './cartSlice';
+import { getUsername } from '../user/userSlice';
 
 function Cart() {
   const username = useSelector(getUsername);

@@ -1,5 +1,10 @@
+// React router
 import { useLoaderData } from 'react-router-dom';
+
+// Services
 import { getMenu } from '../../services/apiRestaurant';
+
+// Components
 import MenuItem from './MenuItem';
 
 function Menu() {

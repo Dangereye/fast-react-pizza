@@ -7,10 +7,10 @@ import { formatCurrency } from '../../utils/helpers';
 // Components
 import Button from '../../ui/Button';
 import DeleteItem from '../cart/DeleteItem';
-
-// Actions
-import { addItem, getCurrentQuantityById } from '../cart/cartSlice';
 import UpdateItemQuantity from '../cart/UpdateItemQuantity';
+
+// Selectors & Actions
+import { addItem, getCurrentQuantityById } from '../cart/cartSlice';
 
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;

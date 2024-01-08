@@ -5,13 +5,13 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 // React router
+import { useNavigate } from 'react-router-dom';
 
 // Components
 import Button from '../../ui/Button';
 
 // Slices
 import { updateName } from './userSlice';
-import { useNavigate } from 'react-router-dom';
 
 function CreateUser() {
   const [username, setUsername] = useState('');

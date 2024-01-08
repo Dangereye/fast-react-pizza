@@ -43,8 +43,6 @@ export default cartSlice.reducer;
 
 // Selector functions
 
-export const getUsername = (state) => state.user.username;
-
 export const getCart = (state) => state.cart.cart;
 
 export const getCartTotalQuantity = (state) =>
