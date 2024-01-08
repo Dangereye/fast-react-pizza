@@ -2,7 +2,7 @@
 import { useState } from 'react';
 
 // React Redux
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import store from '../../store';
 
 // React router
@@ -11,8 +11,8 @@ import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
 // Services
 import { createOrder } from '../../services/apiRestaurant';
 
-// Selectors & Actions
-import { getUsername } from '../user/userSlice';
+// Selectors, Actions & Thunks
+import { fetchAddress, getUsername } from '../user/userSlice';
 import { clearCart, getCart, getCartTotalPrice } from '../cart/cartSlice';
 
 // Components
@@ -38,6 +38,7 @@ function CreateOrder() {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === 'submitting';
   const formErrors = useActionData();
+  const dispatch = useDispatch();
 
   if (!cart.length) return <EmptyCart />;
 
@@ -46,6 +47,7 @@ function CreateOrder() {
       <h2 className='mb-8 text-xl font-semibold'>
         Ready to order? Let&apos;s go!
       </h2>
+      <button onClick={() => dispatch(fetchAddress())}>Get position</button>
 
       <Form method='POST'>
         <div className='flex flex-col gap-2 mb-5 sm:items-center sm:flex-row'>
