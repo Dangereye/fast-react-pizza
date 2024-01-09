@@ -16,6 +16,7 @@ import {
 
 // Components
 import OrderItem from './OrderItem';
+import UpdateOrderPriority from './UpdateOrderPriority';
 
 function Order() {
   const order = useLoaderData();
@@ -93,6 +94,7 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+      {!priority && <UpdateOrderPriority order={order} />}
     </div>
   );
 }
